@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOODLY | Good Food, Good Mood</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-[#101010] text-white">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="#" class="logo">FOOD<span>LY.</span></a>
+
+      <div class="hidden md:flex gap-8 items-center">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="flex gap-3 items-center">
+        <button onclick="toggleCart()" class="cart-button">
+          🛒 Cart <span id="cart-count">0</span>
+        </button>
+        <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">☰</button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden flex-col gap-4 px-6 pb-5 md:hidden">
+      <a href="#home" onclick="toggleMobileMenu()">Home</a>
+      <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
+      <a href="#about" onclick="toggleMobileMenu()">About</a>
+      <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="orange-text tracking-widest font-semibold mb-5">
+          WELCOME TO FOODLY
+        </p>
+
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          Good Food.<br>
+          <span class="orange-text">Good Mood.</span>
+        </h1>
+
+        <p class="text-gray-400 mt-6 leading-7 max-w-lg">
+          Fresh ingredients, delicious flavours and unforgettable
+          meals. Your favourite food is just a click away.
+        </p>
+
+        <div class="flex gap-4 mt-8 flex-wrap">
+          <a href="#menu" class="primary-button">Explore Menu →</a>
+          <a href="#about" class="secondary-button">Our Story</a>
+        </div>
+
+        <div class="flex gap-10 mt-12">
+          <div>
+            <h2 class="text-3xl font-bold">50+</h2>
+            <p class="text-gray-500 text-sm">Food Items</p>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold">4.9★</h2>
+            <p class="text-gray-500 text-sm">Customer Rating</p>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold">30min</h2>
+            <p class="text-gray-500 text-sm">Fast Delivery</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-container">
+        <img
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900"
+          alt="Delicious burger"
+          class="hero-image"
+        >
+        <div class="floating-card">
+          <span class="text-2xl">🔥</span>
+          <div>
+            <h3 class="font-bold">Hot & Fresh</h3>
+            <p class="text-gray-400 text-sm">Made with love</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-12">
+        <p class="orange-text font-semibold tracking-widest">OUR MENU</p>
+        <h2 class="text-4xl md:text-5xl font-bold mt-3">
+          Explore Our <span class="orange-text">Dishes</span>
+        </h2>
+        <p class="text-gray-400 mt-4">
+          Something delicious for every craving.
+        </p>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="max-w-xl mx-auto mb-8">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search your favourite food..."
+          class="search-input w-full"
+        >
+      </div>
+
+      <!-- CATEGORY FILTER -->
+      <div id="category-buttons"
+           class="flex justify-center flex-wrap gap-3 mb-12">
+        <button class="category-btn active" data-category="All">All</button>
+        <button class="category-btn" data-category="Burger">Burgers</button>
+        <button class="category-btn" data-category="Pizza">Pizza</button>
+        <button class="category-btn" data-category="Drinks">Drinks</button>
+        <button class="category-btn" data-category="Dessert">Desserts</button>
+      </div>
+
+      <!-- FOOD CARDS -->
+      <div id="food-container"
+           class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section py-24 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+      <img
+        src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900"
+        alt="Freshly prepared food"
+        class="about-image"
+      >
+
+      <div>
+        <p class="orange-text font-semibold tracking-widest">ABOUT FOODLY</p>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4">
+          We Serve Happiness On Every Plate.
+        </h2>
+
+        <p class="text-gray-400 mt-6 leading-8">
+          At FOODLY, we believe great food brings people together.
+          Our passion is to serve delicious meals made with fresh
+          ingredients and amazing flavours.
+        </p>
+
+        <p class="text-gray-400 mt-4 leading-8">
+          From crispy burgers to cheesy pizzas, every dish is
+          prepared to make your day a little better.
+        </p>
+
+        <a href="#menu" class="primary-button inline-block mt-8">
+          Discover Our Menu →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+
+      <p class="orange-text font-semibold tracking-widest">GET IN TOUCH</p>
+      <h2 class="text-4xl font-bold mt-3">Let's Talk Food!</h2>
+
+      <p class="text-gray-400 mt-4 mb-10">
+        Have a question? Send us a message.
+      </p>
+
+      <form id="contact-form" class="contact-form text-left">
+        <label>Your Name</label>
+        <input type="text" id="contact-name"
+               placeholder="Enter your name" required>
+
+        <label>Email Address</label>
+        <input type="email" id="contact-email"
+               placeholder="Enter your email" required>
+
+        <label>Message</label>
+        <textarea id="contact-message"
+                  placeholder="Write your message..." required></textarea>
+
+        <button type="submit" class="primary-button w-full mt-5">
+          Send Message →
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer px-6 py-10 text-center">
+    <a href="#" class="logo">FOOD<span>LY.</span></a>
+    <p class="text-gray-500 mt-4">
+      Good Food. Good Mood. © 2026 FOODLY.
+    </p>
+    <p class="text-gray-600 text-sm mt-2">
+      Made with ❤️ for food lovers.
+    </p>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div id="cart-overlay" class="cart-overlay hidden"
+       onclick="closeCart()"></div>
+
+  <aside id="cart-sidebar" class="cart-sidebar">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-2xl font-bold">Your Cart 🛒</h2>
+      <button onclick="closeCart()" class="text-2xl">×</button>
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto"></div>
+
+    <div class="border-t border-gray-700 pt-5 mt-5">
+      <div class="flex justify-between text-xl font-bold">
+        <span>Total</span>
+        <span id="cart-total">₹0</span>
+      </div>
+      <button onclick="checkout()" class="primary-button w-full mt-5">
+        Proceed to Checkout →
+      </button>
+    </div>
+  </aside>
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
